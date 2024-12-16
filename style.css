@@ -1,388 +1,322 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+body {
+  margin: 16px;
+  background: #f4dd8c;
 }
 
 /* 
 0.69 is the aspect ratio of the image
-8px is the padding on the left of the image
-26px is the padding on the top of the image
-16px is the padding on the left and right of the window
+16px (the * 2 one) is the margin on the body element
+16px is also the gap on larger screens between the content and image
 */
+:root {
+  --main-image-width: calc((100vw - 2 * 16px));
+  --main-image-height: calc(0.69 * var(--main-image-width));
+}
+
+@media (min-width: 768px) {
+  :root {
+    --main-image-width: calc((100vw - 16px - 2 * 16px) / 2);
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.mailbox-container {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  text-align: end;
+}
+
+.mailboxes {
+  width: 100%;
+  position: aboslute;
+  left: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li:after {
+  content: "🌱";
+  padding-left: 8px;
+}
 
 .mail-1-1 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.104 * (100vw - 16px)));
-  top: calc(26px + 0.353 * (0.69 * (100vw - 16px)));
-  width: calc(0.061 * (100vw - 16px));
-  height: calc(0.11 * (0.69 * (100vw - 16px)));
+  left: calc(0.104 * var(--main-image-width));
+  top: calc(0.353 * var(--main-image-height));
+  width: calc(0.061 * var(--main-image-width));
+  height: calc(0.11 * var(--main-image-height));
 }
 
 .mail-1-2 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.16 * (100vw - 16px)));
-  top: calc(26px + 0.353 * (0.69 * (100vw - 16px)));
-  width: calc(0.063 * (100vw - 16px));
-  height: calc(0.081 * (0.69 * (100vw - 16px)));
+  left: calc((0.16 * var(--main-image-width)));
+  top: calc(0.353 * (0.69 * var(--main-image-width)));
+  width: calc(0.063 * var(--main-image-width));
+  height: calc(0.081 * (0.69 * var(--main-image-width)));
 }
 
 .mail-1-3 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.224 * (100vw - 16px)));
-  top: calc(26px + 0.333 * (0.69 * (100vw - 16px)));
-  width: calc(0.063 * (100vw - 16px));
-  height: calc(0.081 * (0.9 * (100vw - 16px)));
+  left: calc((0.224 * var(--main-image-width)));
+  top: calc(0.333 * (0.69 * var(--main-image-width)));
+  width: calc(0.063 * var(--main-image-width));
+  height: calc(0.081 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-4 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.288 * (100vw - 16px)));
-  top: calc(26px + 0.33 * (0.69 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.082 * (0.9 * (100vw - 16px)));
+  left: calc((0.288 * var(--main-image-width)));
+  top: calc(0.33 * (0.69 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.082 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-5 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.3481 * (100vw - 16px)));
-  top: calc(26px + 0.35 * (0.69 * (100vw - 16px)));
-  width: calc(0.068 * (100vw - 16px));
-  height: calc(0.07 * (0.9 * (100vw - 16px)));
+  left: calc((0.3481 * var(--main-image-width)));
+  top: calc(0.35 * (0.69 * var(--main-image-width)));
+  width: calc(0.068 * var(--main-image-width));
+  height: calc(0.07 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-6 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.416 * (100vw - 16px)));
-  top: calc(26px + 0.348 * (0.69 * (100vw - 16px)));
-  width: calc(0.073 * (100vw - 16px));
-  height: calc(0.07 * (0.9 * (100vw - 16px)));
+  left: calc((0.416 * var(--main-image-width)));
+  top: calc(0.348 * (0.69 * var(--main-image-width)));
+  width: calc(0.073 * var(--main-image-width));
+  height: calc(0.07 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-7 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.495 * (100vw - 16px)));
-  top: calc(26px + 0.345 * (0.69 * (100vw - 16px)));
-  width: calc(0.055 * (100vw - 16px));
-  height: calc(0.08 * (0.9 * (100vw - 16px)));
+  left: calc((0.495 * var(--main-image-width)));
+  top: calc(0.345 * (0.69 * var(--main-image-width)));
+  width: calc(0.055 * var(--main-image-width));
+  height: calc(0.08 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-8 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.565 * (100vw - 16px)));
-  top: calc(26px + 0.349 * (0.69 * (100vw - 16px)));
-  width: calc(0.066 * (100vw - 16px));
-  height: calc(0.06 * (0.9 * (100vw - 16px)));
+  left: calc((0.565 * var(--main-image-width)));
+  top: calc(0.349 * (0.69 * var(--main-image-width)));
+  width: calc(0.066 * var(--main-image-width));
+  height: calc(0.06 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-9 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.644 * (100vw - 16px)));
-  top: calc(26px + 0.358 * (0.69 * (100vw - 16px)));
-  width: calc(0.051 * (100vw - 16px));
-  height: calc(0.076 * (0.9 * (100vw - 16px)));
+  left: calc((0.644 * var(--main-image-width)));
+  top: calc(0.358 * (0.69 * var(--main-image-width)));
+  width: calc(0.051 * var(--main-image-width));
+  height: calc(0.076 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-10 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.712 * (100vw - 16px)));
-  top: calc(26px + 0.347 * (0.69 * (100vw - 16px)));
-  width: calc(0.062 * (100vw - 16px));
-  height: calc(0.081 * (0.9 * (100vw - 16px)));
+  left: calc((0.712 * var(--main-image-width)));
+  top: calc(0.347 * (0.69 * var(--main-image-width)));
+  width: calc(0.062 * var(--main-image-width));
+  height: calc(0.081 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-11 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.775 * (100vw - 16px)));
-  top: calc(26px + 0.371 * (0.69 * (100vw - 16px)));
-  width: calc(0.064 * (100vw - 16px));
-  height: calc(0.063 * (0.9 * (100vw - 16px)));
+  left: calc((0.775 * var(--main-image-width)));
+  top: calc(0.371 * (0.69 * var(--main-image-width)));
+  width: calc(0.064 * var(--main-image-width));
+  height: calc(0.063 * (0.9 * var(--main-image-width)));
 }
 
 .mail-1-12 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.84 * (100vw - 16px)));
-  top: calc(26px + 0.37 * (0.69 * (100vw - 16px)));
-  width: calc(0.071 * (100vw - 16px));
-  height: calc(0.064 * (0.9 * (100vw - 16px)));
+  left: calc((0.84 * var(--main-image-width)));
+  top: calc(0.37 * (0.69 * var(--main-image-width)));
+  width: calc(0.071 * var(--main-image-width));
+  height: calc(0.064 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-1 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.102 * (100vw - 16px)));
-  top: calc(26px + 0.36 * (0.89 * (100vw - 16px)));
-  width: calc(0.062 * (100vw - 16px));
-  height: calc(0.058 * (0.9 * (100vw - 16px)));
+  left: calc((0.102 * var(--main-image-width)));
+  top: calc(0.36 * (0.89 * var(--main-image-width)));
+  width: calc(0.062 * var(--main-image-width));
+  height: calc(0.058 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-2 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.165 * (100vw - 16px)));
-  top: calc(26px + 0.343 * (0.89 * (100vw - 16px)));
-  width: calc(0.054 * (100vw - 16px));
-  height: calc(0.0813 * (0.9 * (100vw - 16px)));
+  left: calc((0.165 * var(--main-image-width)));
+  top: calc(0.343 * (0.89 * var(--main-image-width)));
+  width: calc(0.054 * var(--main-image-width));
+  height: calc(0.0813 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-3 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.223 * (100vw - 16px)));
-  top: calc(26px + 0.345 * (0.89 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.076 * (0.9 * (100vw - 16px)));
+  left: calc((0.223 * var(--main-image-width)));
+  top: calc(0.345 * (0.89 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.076 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-4 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.288 * (100vw - 16px)));
-  top: calc(26px + 0.35 * (0.89 * (100vw - 16px)));
-  width: calc(0.066 * (100vw - 16px));
-  height: calc(0.064 * (0.9 * (100vw - 16px)));
+  left: calc((0.288 * var(--main-image-width)));
+  top: calc(0.35 * (0.89 * var(--main-image-width)));
+  width: calc(0.066 * var(--main-image-width));
+  height: calc(0.064 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-5 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.357 * (100vw - 16px)));
-  top: calc(26px + 0.35 * (0.89 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.0791 * (0.9 * (100vw - 16px)));
+  left: calc((0.357 * var(--main-image-width)));
+  top: calc(0.35 * (0.89 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.0791 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-6 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.424 * (100vw - 16px)));
-  top: calc(26px + 0.346 * (0.89 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.0791 * (0.9 * (100vw - 16px)));
+  left: calc((0.424 * var(--main-image-width)));
+  top: calc(0.346 * (0.89 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.0791 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-7 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.493 * (100vw - 16px)));
-  top: calc(26px + 0.355 * (0.89 * (100vw - 16px)));
-  width: calc(0.062 * (100vw - 16px));
-  height: calc(0.06 * (0.9 * (100vw - 16px)));
+  left: calc((0.493 * var(--main-image-width)));
+  top: calc(0.355 * (0.89 * var(--main-image-width)));
+  width: calc(0.062 * var(--main-image-width));
+  height: calc(0.06 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-8 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.565 * (100vw - 16px)));
-  top: calc(26px + 0.335 * (0.89 * (100vw - 16px)));
-  width: calc(0.054 * (100vw - 16px));
-  height: calc(0.0791 * (0.9 * (100vw - 16px)));
+  left: calc((0.565 * var(--main-image-width)));
+  top: calc(0.335 * (0.89 * var(--main-image-width)));
+  width: calc(0.054 * var(--main-image-width));
+  height: calc(0.0791 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-9 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.633 * (100vw - 16px)));
-  top: calc(26px + 0.356 * (0.89 * (100vw - 16px)));
-  width: calc(0.063 * (100vw - 16px));
-  height: calc(0.063 * (0.9 * (100vw - 16px)));
+  left: calc((0.633 * var(--main-image-width)));
+  top: calc(0.356 * (0.89 * var(--main-image-width)));
+  width: calc(0.063 * var(--main-image-width));
+  height: calc(0.063 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-10 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.699 * (100vw - 16px)));
-  top: calc(26px + 0.364 * (0.89 * (100vw - 16px)));
-  width: calc(0.045 * (100vw - 16px));
-  height: calc(0.068 * (0.9 * (100vw - 16px)));
+  left: calc((0.699 * var(--main-image-width)));
+  top: calc(0.364 * (0.89 * var(--main-image-width)));
+  width: calc(0.045 * var(--main-image-width));
+  height: calc(0.068 * (0.9 * var(--main-image-width)));
 }
 
 .mail-2-11 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.75 * (100vw - 16px)));
-  top: calc(26px + 0.366 * (0.89 * (100vw - 16px)));
-  width: calc(0.069 * (100vw - 16px));
-  height: calc(0.098 * (0.9 * (100vw - 16px)));
+  left: calc((0.75 * var(--main-image-width)));
+  top: calc(0.366 * (0.89 * var(--main-image-width)));
+  width: calc(0.069 * var(--main-image-width));
+  height: calc(0.098 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-1 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.158 * (100vw - 16px)));
-  top: calc(26px + 0.43 * (0.89 * (100vw - 16px)));
-  width: calc(0.067 * (100vw - 16px));
-  height: calc(0.065 * (0.9 * (100vw - 16px)));
+  left: calc((0.158 * var(--main-image-width)));
+  top: calc(0.43 * (0.89 * var(--main-image-width)));
+  width: calc(0.067 * var(--main-image-width));
+  height: calc(0.065 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-2 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.225 * (100vw - 16px)));
-  top: calc(26px + 0.425 * (0.89 * (100vw - 16px)));
-  width: calc(0.065 * (100vw - 16px));
-  height: calc(0.063 * (0.9 * (100vw - 16px)));
+  left: calc((0.225 * var(--main-image-width)));
+  top: calc(0.425 * (0.89 * var(--main-image-width)));
+  width: calc(0.065 * var(--main-image-width));
+  height: calc(0.063 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-3 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.3 * (100vw - 16px)));
-  top: calc(26px + 0.427 * (0.88 * (100vw - 16px)));
-  width: calc(0.05 * (100vw - 16px));
-  height: calc(0.075 * (0.9 * (100vw - 16px)));
+  left: calc((0.3 * var(--main-image-width)));
+  top: calc(0.427 * (0.88 * var(--main-image-width)));
+  width: calc(0.05 * var(--main-image-width));
+  height: calc(0.075 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-4 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.359 * (100vw - 16px)));
-  top: calc(26px + 0.438 * (0.88 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.081 * (0.9 * (100vw - 16px)));
+  left: calc((0.359 * var(--main-image-width)));
+  top: calc(0.438 * (0.88 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.081 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-5 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.424 * (100vw - 16px)));
-  top: calc(26px + 0.435 * (0.88 * (100vw - 16px)));
-  width: calc(0.06 * (100vw - 16px));
-  height: calc(0.081 * (0.9 * (100vw - 16px)));
+  left: calc((0.424 * var(--main-image-width)));
+  top: calc(0.435 * (0.88 * var(--main-image-width)));
+  width: calc(0.06 * var(--main-image-width));
+  height: calc(0.081 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-6 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.49 * (100vw - 16px)));
-  top: calc(26px + 0.421 * (0.88 * (100vw - 16px)));
-  width: calc(0.067 * (100vw - 16px));
-  height: calc(0.06 * (0.9 * (100vw - 16px)));
+  left: calc((0.49 * var(--main-image-width)));
+  top: calc(0.421 * (0.88 * var(--main-image-width)));
+  width: calc(0.067 * var(--main-image-width));
+  height: calc(0.06 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-7 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.561 * (100vw - 16px)));
-  top: calc(26px + 0.425 * (0.88 * (100vw - 16px)));
-  width: calc(0.0665 * (100vw - 16px));
-  height: calc(0.074 * (0.9 * (100vw - 16px)));
+  left: calc((0.561 * var(--main-image-width)));
+  top: calc(0.425 * (0.88 * var(--main-image-width)));
+  width: calc(0.0665 * var(--main-image-width));
+  height: calc(0.074 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-8 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.634 * (100vw - 16px)));
-  top: calc(26px + 0.426 * (0.88 * (100vw - 16px)));
-  width: calc(0.0665 * (100vw - 16px));
-  height: calc(0.035 * (0.9 * (100vw - 16px)));
+  left: calc((0.634 * var(--main-image-width)));
+  top: calc(0.426 * (0.88 * var(--main-image-width)));
+  width: calc(0.0665 * var(--main-image-width));
+  height: calc(0.035 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-9 {
-  position: fixed;
-  background-color: unset;
-  border: unset;
-
-  left: calc(8px + (0.702 * (100vw - 16px)));
-  top: calc(26px + 0.445 * (0.88 * (100vw - 16px)));
-  width: calc(0.045 * (100vw - 16px));
-  height: calc(0.069 * (0.9 * (100vw - 16px)));
+  left: calc((0.702 * var(--main-image-width)));
+  top: calc(0.445 * (0.88 * var(--main-image-width)));
+  width: calc(0.045 * var(--main-image-width));
+  height: calc(0.069 * (0.9 * var(--main-image-width)));
 }
 
 .mail-3-10 {
-  position: fixed;
+  left: calc((0.785 * var(--main-image-width)));
+  top: calc(0.48 * (0.88 * var(--main-image-width)));
+  width: calc(0.08 * var(--main-image-width));
+  height: calc(0.07 * (0.9 * var(--main-image-width)));
+}
+
+.mailbox {
+  position: absolute;
   background-color: unset;
   border: unset;
 
-  left: calc(8px + (0.785 * (100vw - 16px)));
-  top: calc(26px + 0.48 * (0.88 * (100vw - 16px)));
-  width: calc(0.08 * (100vw - 16px));
-  height: calc(0.07 * (0.9 * (100vw - 16px)));
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(1px);
+    border-radius: 1px;
+    box-shadow: 2px 2px rgba(255, 255, 255, 0.15);
+  }
 }
 
 button:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(1px);
-  border-radius: 1px;
-  box-shadow: 2px 2px rgba(255, 255, 255, 0.15);
 }
 
-notification {
-  position: fixed;
-  background-color: rgb(255, 42, 0);
+dialog {
+  border: none;
+  background: #a8c8f6;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+
+  button {
+    padding: 0;
+    font-family: "Times New Roman", Times, serif;
+    color: #ff4000;
+    background: none;
+    border: none;
+  }
 }
